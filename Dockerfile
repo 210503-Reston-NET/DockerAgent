@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     netcat \
     libssl1.0 \
     wget \
+    openjdk-11-jdk-headless \
   && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -24,7 +25,7 @@ RUN dpkg -i packages-microsoft-prod.deb
 RUN apt-get update;
 RUN apt-get install -y apt-transport-https && \
     apt-get update && \
-    apt-get install -y dotnet-sdk-5.0
+    apt-get install -y dotnet-sdk-5.0 dotnet-sdk-2.1
 
 RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
   && rm -rf /var/lib/apt/lists/*
