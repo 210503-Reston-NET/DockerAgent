@@ -140,5 +140,5 @@ trap 'cleanup; exit 143' TERM
 ./run.sh "$@"
 ```
 ## Build and run the image
-`docker build -t dockeragent:latest .`
-`docker run -e AZP_URL=<Azure DevOps instance> -e AZP_TOKEN=<PAT token> -e AZP_AGENT_NAME=mydockeragent dockeragent:latest`
+1. `docker build -t dockeragent:latest .`
+2. `docker run -e AZP_URL=<Azure DevOps instance> -e AZP_TOKEN=<PAT token> -e AZP_AGENT_NAME=mydockeragent dockeragent:latest`
