@@ -27,3 +27,37 @@ If you get an error: `exec user process caused: no such file or directory`
 Then Repeat steps 3 and 4 (The build will run much faster)
 
 If you get other errors, message me :)
+
+# Code Coverage
+1. Add Packages to Your Test Project
+  - https://www.nuget.org/packages/coverlet.msbuild/
+  - https://www.nuget.org/packages/coverlet.collector/
+
+2. Add Some stuff to your .yaml file
+3. These are the Important parts:
+  - SonarCloudPrepare - extraProperties
+  - DotNetCoreCLI - arguements
+  - PublishCoverageResults - summaryFileLocation && reportDirectory
+
+```
+- task: SonarCloudPrepare@1
+    inputs:
+      <Other Inputs>
+      extraProperties: 'sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/**/coverage.opencover.xml'  
+#V2
+  - task: DotNetCoreCLI@2
+    displayName: 'Run unit tests - $(buildConfiguration)'
+    inputs:
+      command: 'test'
+      arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true "/p:CoverletOutputFormat=\"opencover,Cobertura\""'
+      publishTestResults: true
+      projects: '$(solution)'
+
+  - task: PublishCodeCoverageResults@1
+    displayName: 'Publish Code Coverage Report'
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+      reportDirectory: '$(Build.SourcesDirectory)/App/Tests/'
+
+```
