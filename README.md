@@ -27,6 +27,3 @@ If you get an error: `exec user process caused: no such file or directory`
 Then Repeat steps 3 and 4 (The build will run much faster)
 
 If you get other errors, message me :)
-
-### Git bash converts unix style line endings to some windows garbage by default.
-### The docker image needs the unix style ending because it is a linux operating system.
