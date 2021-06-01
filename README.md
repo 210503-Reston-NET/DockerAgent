@@ -32,6 +32,7 @@ If you get other errors, message me :)
 1. Add Packages to Your Test Project
   - https://www.nuget.org/packages/coverlet.msbuild/
   - https://www.nuget.org/packages/coverlet.collector/
+  - Maybe this one too? https://www.nuget.org/packages/Microsoft.CodeCoverage/
 
 2. Add Some stuff to your .yaml file
 3. These are the Important parts:
