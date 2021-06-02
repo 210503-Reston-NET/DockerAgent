@@ -37,7 +37,7 @@ If you get other errors, message me :)
 2. Add Some stuff to your .yaml file
 3. These are the Important parts:
   - SonarCloudPrepare - extraProperties
-  - DotNetCoreCLI - arguements
+  - DotNetCoreCLI - arguments
   - PublishCoverageResults - summaryFileLocation && reportDirectory
 
 ```
