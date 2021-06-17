@@ -27,11 +27,16 @@ RUN dpkg -i packages-microsoft-prod.deb
 RUN apt-get update;
 RUN apt-get install -y apt-transport-https && \
     apt-get update && \
-    apt-get install -y dotnet-sdk-5.0 dotnet-sdk-2.1 aspnetcore-runtime-5.0
+    apt-get install -y dotnet-sdk-5.0 dotnet-sdk-2.1 aspnetcore-runtime-5.0 
 
 #Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash \
  && apt-get install -y nodejs
+
+#Install google-chrome
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN apt-get install -y ./google-chrome-stable_current_amd64.deb
+
 
 #Check version (must be > 10)
 RUN node -v
